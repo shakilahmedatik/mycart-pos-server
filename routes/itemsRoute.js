@@ -1,8 +1,9 @@
 import express from 'express'
-import { allItems } from '../controllers/itemsController'
+import { allItems, addItems } from '../controllers/itemsController'
 
 const router = express.Router()
 
-router.get('/items', allItems)
+router.get('/items/get-all-items', allItems)
+router.post('/items/add-items', addItems)
 
 module.exports = router
