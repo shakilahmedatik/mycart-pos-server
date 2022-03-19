@@ -1,5 +1,6 @@
 import itemsModel from '../models/itemsModel'
 
+// Get all the items from database
 export const allItems = async (req, res) => {
   try {
     const items = await itemsModel.find()
