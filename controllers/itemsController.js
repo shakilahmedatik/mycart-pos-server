@@ -19,3 +19,12 @@ export const addItem = async (req, res) => {
     res.status(400).json(error)
   }
 }
+
+export const editItem = async (req, res) => {
+  try {
+    await itemsModel.findOneAndUpdate({ _id: req.body.itemId }, req.body)
+    res.status(200).send('Item Updated Successfully!')
+  } catch (error) {
+    res.status(400).json(error)
+  }
+}
