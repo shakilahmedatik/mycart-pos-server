@@ -11,6 +11,7 @@ export const allItems = async (req, res) => {
   }
 }
 
+// Add an item in the database.
 export const addItem = async (req, res) => {
   try {
     const newItem = new itemsModel(req.body)
