@@ -22,6 +22,7 @@ export const addItem = async (req, res) => {
   }
 }
 
+// Edit an item in the database.
 export const editItem = async (req, res) => {
   try {
     await itemsModel.findOneAndUpdate({ _id: req.body.itemId }, req.body)
