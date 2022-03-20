@@ -35,7 +35,8 @@ export const editItem = async (req, res) => {
 // Delete an item in the database.
 export const deleteItem = async (req, res) => {
   try {
-    await itemsModel.findOneAndDelete({ _id: req.body.itemId })
+    console.log(req.params.id)
+    await itemsModel.findOneAndDelete({ _id: req.params.id })
     res.status(200).send('Item Deleted Successfully!')
   } catch (error) {
     res.status(400).json(error)

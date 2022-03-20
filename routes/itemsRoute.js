@@ -11,6 +11,6 @@ const router = express.Router()
 router.get('/items/get-all-items', allItems)
 router.post('/items/add-items', addItem)
 router.put('/items/edit-item', editItem)
-router.delete('/items/delete-item', deleteItem)
+router.delete('/items/delete-item/:id', deleteItem)
 
 module.exports = router
