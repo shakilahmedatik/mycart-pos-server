@@ -15,8 +15,14 @@ export const register = async (req, res) => {
 // Login user
 export const login = async (req, res) => {
   try {
-    // code goes here
+    await userModel.findOne({
+      userId: req.body.userId,
+      password: req.body.password,
+      verified: true,
+    })
+    res.send('Login Successful!')
   } catch (error) {
     console.log(error)
+    res.status(400).json(error)
   }
 }
