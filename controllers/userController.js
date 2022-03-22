@@ -8,6 +8,8 @@ export const register = async (req, res) => {
 
     // Name validation
     if (!name) return res.status(400).send('Name is required')
+    // userId validation
+    if (!userid) return res.status(400).send('User ID is required')
 
     // userId validation
     let userExist = await userModel.findOne({ userId }).exec()
