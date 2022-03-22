@@ -45,6 +45,7 @@ export const login = async (req, res) => {
       res.send('Login Successful!')
     } else res.send('Login Failed!')
   } catch (error) {
+    // Error handling
     console.log(error)
     res.status(400).json(error)
   }
