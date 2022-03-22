@@ -3,6 +3,12 @@ import userModel from '../models/userModel'
 // Register new user
 export const register = async (req, res) => {
   try {
+    //Received Data From Front-End
+    const { name, userid, password } = req.body
+
+    // Name validation
+    if (!name) return res.status(400).send('Name is required')
+
     // userId validation
     let userExist = await userModel.findOne({ userId }).exec()
     if (userExist) return res.status(400).send('userId is taken')
