@@ -4,12 +4,12 @@ import userModel from '../models/userModel'
 export const register = async (req, res) => {
   try {
     //Received Data From Front-End
-    const { name, userid, password } = req.body
+    const { name, userId, password } = req.body
 
     // Name validation
     if (!name) return res.status(400).send('Name is required')
     // userId validation
-    if (!userid) return res.status(400).send('User ID is required')
+    if (!userId) return res.status(400).send('User ID is required')
     // Password validation
     if (!password || password.length < 6) {
       return res
@@ -31,6 +31,11 @@ export const register = async (req, res) => {
 // Login user
 export const login = async (req, res) => {
   try {
+    const { email, password } = req.body
+
+    // Email Validation
+    const userId = await User.findOne({ userId }).exec()
+    if (!userId) return res.status(400).send('No user found')
     const user = await userModel.findOne({
       userId: req.body.userId,
       password: req.body.password,
