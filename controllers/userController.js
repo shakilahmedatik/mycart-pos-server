@@ -10,7 +10,12 @@ export const register = async (req, res) => {
     if (!name) return res.status(400).send('Name is required')
     // userId validation
     if (!userid) return res.status(400).send('User ID is required')
-
+    // Password validation
+    if (!password || password.length < 6) {
+      return res
+        .status(400)
+        .send('Password is required and should be min 6 characters long')
+    }
     // userId validation
     let userExist = await userModel.findOne({ userId }).exec()
     if (userExist) return res.status(400).send('userId is taken')
