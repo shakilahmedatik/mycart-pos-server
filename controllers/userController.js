@@ -37,6 +37,7 @@ export const login = async (req, res) => {
     const userCheck = await userModel.findOne({ userId }).exec()
     if (!userCheck) return res.status(400).send('No user found')
 
+    // password validation
     if (!password || password.length < 6) {
       return res
         .status(400)
