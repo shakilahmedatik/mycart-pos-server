@@ -31,11 +31,11 @@ export const register = async (req, res) => {
 // Login user
 export const login = async (req, res) => {
   try {
-    const { email, password } = req.body
+    const { userId, password } = req.body
 
-    // Email Validation
-    const userId = await userModel.findOne({ userId }).exec()
-    if (!userId) return res.status(400).send('No user found')
+    // userId Validation
+    const userCheck = await userModel.findOne({ userId }).exec()
+    if (!userCheck) return res.status(400).send('No user found')
     const user = await userModel.findOne({
       userId: req.body.userId,
       password: req.body.password,
