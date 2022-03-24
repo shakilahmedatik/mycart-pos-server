@@ -34,7 +34,7 @@ export const login = async (req, res) => {
     const { email, password } = req.body
 
     // Email Validation
-    const userId = await User.findOne({ userId }).exec()
+    const userId = await userModel.findOne({ userId }).exec()
     if (!userId) return res.status(400).send('No user found')
     const user = await userModel.findOne({
       userId: req.body.userId,
