@@ -49,9 +49,12 @@ export const login = async (req, res) => {
       password: req.body.password,
       verified: true,
     })
+
     if (user) {
       res.send(user)
-    } else res.send('Login Failed!')
+    } else {
+      res.status(400).send('User not validated')
+    }
   } catch (error) {
     // Error handling
     console.log(error)
