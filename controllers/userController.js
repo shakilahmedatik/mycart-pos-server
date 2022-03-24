@@ -50,7 +50,7 @@ export const login = async (req, res) => {
       verified: true,
     })
     if (user) {
-      res.send('Login Successful!')
+      res.send(user)
     } else res.send('Login Failed!')
   } catch (error) {
     // Error handling
