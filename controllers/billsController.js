@@ -1,7 +1,7 @@
 import billModel from '../models/billModel'
 
 // Add an item in the database.
-export const addItem = async (req, res) => {
+export const chargeBill = async (req, res) => {
   try {
     const newBill = new billModel(req.body)
     newBill.save()
