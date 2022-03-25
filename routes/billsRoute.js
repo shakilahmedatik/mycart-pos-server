@@ -3,6 +3,6 @@ import { chargeBill } from '../controllers/billsController'
 
 const router = express.Router()
 
-router.post('/items/charge-bill', chargeBill)
+router.post('/bills/charge-bill', chargeBill)
 
 module.exports = router
