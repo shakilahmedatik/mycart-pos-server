@@ -15,6 +15,7 @@ export const allItems = async (req, res) => {
 export const addItem = async (req, res) => {
   try {
     const newItem = new itemsModel(req.body)
+    // save item in the db
     newItem.save()
     res.status(200).send('Item Added Successfully!')
   } catch (error) {
