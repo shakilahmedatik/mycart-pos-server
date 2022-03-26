@@ -20,6 +20,7 @@ export const register = async (req, res) => {
     let userExist = await userModel.findOne({ userId }).exec()
     if (userExist) return res.status(400).send('userId is taken')
     const newUser = new userModel({ ...req.body, verified: false })
+    // Save user in the db
     await newUser.save()
     res.send('Registration Successful, Please Wait For Verification!')
   } catch (error) {
