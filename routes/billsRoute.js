@@ -4,7 +4,7 @@ import { allBills, chargeBill } from '../controllers/billsController'
 const router = express.Router()
 
 // Get Bills
-router.get('/bills/charge-bill', allBills)
+router.get('/bills/get-all-bills', allBills)
 // Add bills
 router.post('/bills/charge-bill', chargeBill)
 
