@@ -20,6 +20,9 @@ app.use(morgan('dev'))
 // route
 readdirSync('./routes').map(r => app.use('/api', require(`./routes/${r}`)))
 
+// Production Settings
+// if()
+
 // port
 const port = process.env.PORT || 8000
 app.get('/', (req, res) => res.send('Hello!'))
